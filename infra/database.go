@@ -3,6 +3,7 @@ package infra
 import (
 	"fmt"
 
+	"github.com/ahmed/shophub-backend/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -28,6 +29,8 @@ func DBConnection() error {
 	}
 
 	DB = db
+
+	db.AutoMigrate(models.User{})
 
 	return nil
 }
